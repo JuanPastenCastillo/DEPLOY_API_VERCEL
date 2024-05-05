@@ -1,5 +1,5 @@
 {
-  "name": "class-3",
+  "name": "express-api",
   "version": "1.0.0",
   "description": "Deploy API express on render.com",
   "main": "app.js",
@@ -16,5 +16,8 @@
   },
   "devDependencies": {
     "servor": "^4.0.2"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
