@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Testing APIRest</title>
+    <style>
+      article {
+        border: 1px solid #ccc;
+        padding: 1rem;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+    <script type="module">
+      fetch("http://localhost:3000/movies")
+        .then((res) => res.json())
+        .then((xMovies) => {
+          const html = xMovies.data
+            .map((y) => {
+              return `
+              <article data-id="${y.id}">
+                <h2>Title: ${y.title}</h2>
+                <p>Year: ${y.year}</p>
+                <p>Rate: ${y.rate}</p>
+                <img src="${y.poster}" alt="${y.title}">
+                
+                <button>Delete</button>
+              </article>
+            `
+            })
+            .join("")
+
+          document.querySelector("main").innerHTML = html
+
+          document.addEventListener("click", (e) => {
+            if (e.target.matches("button")) {
+              const article = e.target.closest("article")
+              console.log("article:", article)
+              const id = article.dataset.id
+              fetch(`http://localhost:3000/movies/${id}`, {
+                method: "DELETE"
+              }).then((res) => {
+                console.log("res:", res)
+                if (res.ok) {
+                  article.remove()
+                }
+              })
+            }
+          })
+        })
+    </script>
+  </head>
+  <body>
+    <main></main>
+  </body>
+</html>
