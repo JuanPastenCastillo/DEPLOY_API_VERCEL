@@ -22,6 +22,7 @@ const ACCEPTED_ORIGINS = [
   "http://localhost:8080",
   "http://localhost:3000",
   "https://movies.com", // This could be the production
+  "https://deploy-api-render.onrender.com",
   "https://juanpastencastillo.com"
 ]
 
