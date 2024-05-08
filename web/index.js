@@ -67,8 +67,8 @@ document.addEventListener("click", async (e) => {
           <p>Duration: ${rest.duration} minutes</p>
           <p>Genre: ${rest.genre.join(", ")}</p>
           <p>Rate: ${rest.rate}</p>
-          <p>Won an Oscar: ${movie.oscar}</p>
-          <p>Based on book: ${movie.basedOnBook}</p>
+          <p>Won an Oscar: ${rest.oscar}</p>
+          <p>Based on book: ${rest.basedOnBook}</p>
           <img src="${rest.poster}" alt="${rest.title} Poster" />
         </div>
       `
@@ -183,8 +183,8 @@ document.addEventListener("click", async (e) => {
           <p>Duration: ${rest.duration} minutes</p>
           <p>Genre: ${rest.genre.join(", ")}</p>
           <p>Rate: ${rest.rate}</p>
-          <p>Won an Oscar: ${movie.oscar}</p>
-          <p>Based on book: ${movie.basedOnBook}</p>
+          <p>Won an Oscar: ${rest.oscar}</p>
+          <p>Based on book: ${rest.basedOnBook}</p>
           <img src="${rest.poster}" alt="${rest.title} Poster" />
         </div>
       `
