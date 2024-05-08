@@ -15,7 +15,8 @@
     "zod": "3.23.5"
   },
   "devDependencies": {
-    "servor": "^4.0.2"
+    "servor": "^4.0.2",
+    "vercel": "34.1.9"
   },
   "engines": {
     "node": ">=14"

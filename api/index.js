@@ -1,4 +1,4 @@
-/* node --watch app.js */
+/* node --watch index.js */
 
 const express = require("express")
 const crypto = require("node:crypto")
