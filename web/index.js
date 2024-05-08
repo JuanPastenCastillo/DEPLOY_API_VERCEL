@@ -4,7 +4,7 @@ const ROUTES_TO_FETCH_DEV = {
 
 const ROUTES_TO_FETCH_PROD = {
   render: "https://deploy-api-render.onrender.com",
-  vercel: "https://deploy-api-vercel-eight.vercel.app/"
+  vercel: "https://deploy-api-vercel-eight.vercel.app"
 }
 
 const f_movies_default = document.querySelector(".fetch-movies")
