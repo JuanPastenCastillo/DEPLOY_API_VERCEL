@@ -3,8 +3,8 @@ const formatResponse = ({ _actualFormat, theResMethod, theResBody }) => {
     return theResMethod.json(theResBody)
   } else if (_actualFormat === "html") {
     let toHTML
-    if (Array.isArray(theResBody)) {
-      toHTML = theResBody
+    if (Array.isArray(theResBody.data)) {
+      toHTML = theResBody.data
         .map((movie) => {
           return `<div>
       <h2>${movie.title}</h2>
@@ -33,7 +33,7 @@ const formatResponse = ({ _actualFormat, theResMethod, theResBody }) => {
   } else {
     return theResMethod
       .status(400)
-      .send({ message: `Bad format used «${_actualFormat}»` })
+      .send({ error: `Bad format used «${_actualFormat}»` })
   }
 }
 

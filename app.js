@@ -7,7 +7,7 @@ const { validateMovie, validatePartialMovies } = require("./schemas/movies")
 const allMoviesJSON = require("./data/movies.json")
 const { toJSON } = require("./utils/toJSON")
 const { formatResponse } = require("./utils/formatResponse")
-const { moviesQueryParams } = require("./utils/moviesQueryParams")
+const { moviesQueryParams, QUERY_KEYS } = require("./utils/moviesQueryParams")
 const { originChecked } = require("./utils/originChecked")
 
 const app = express()
@@ -22,7 +22,7 @@ const ACCEPTED_ORIGINS = [
   "http://localhost:8080",
   "http://localhost:3000",
   "https://movies.com", // This could be the production
-  "https://deploy-api-render.onrender.com",
+  "https://deploy-api-render.onrender.com", // This could be the production
   "https://juanpastencastillo.com"
 ]
 
@@ -122,9 +122,14 @@ app.get(ROUTES.MOVIES, (req, res) => {
 
 app.get(`${ROUTES.MOVIES}/:id`, (req, res) => {
   const { id } = req.params
+
+  if (id.toLowerCase() === "keys") {
+    return res.status(200).send({ keys: QUERY_KEYS })
+  }
+
   const movie = allMoviesJSON.find((movie) => movie.id === id)
   if (!movie) {
-    return res.status(404).send({ message: `Movie not found with id «${id}»` })
+    return res.status(404).send({ error: `Movie not found with id «${id}»` })
   } else {
     formatResponse({
       _actualFormat: req._format,
@@ -189,7 +194,7 @@ app.delete(`${ROUTES.MOVIES}/:id`, (req, res) => {
   })
 
   if (movieIndex === -1) {
-    return res.status(404).json({ message: `Movie not found with id «${id}»` })
+    return res.status(404).json({ error: `Movie not found with id «${id}»` })
   }
 
   allMoviesJSON.splice(movieIndex, 1)

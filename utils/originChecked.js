@@ -4,7 +4,7 @@ const originChecked = ({ req, ACCEPTED_ORIGINS }) => {
   const { origin = null, host = null } = req.headers
 
   return {
-    acceptedOrigin: ACCEPTED_ORIGINS.includes(origin) || host === HOST_API,
+    acceptedOrigin: ACCEPTED_ORIGINS.includes(origin) || HOST_API === host,
     origin
   }
 }

@@ -1,0 +1,54 @@
+body {
+  background-color: darkslategrey;
+  color: white;
+}
+
+article {
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.fetch-movies,
+.fetch-keys,
+.fetch-filters {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 24px;
+
+  & > * {
+    background-color: black;
+    padding: 0px 16px 16px 16px;
+    border-radius: 24px;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      background-color: hsl(0, 1.9%, 4.4%);
+      outline: 8px solid cornflowerblue;
+    }
+  }
+}
+
+.f-movies-show,
+.fetched-keys,
+.fetched-filters {
+  border: 2px solid black;
+
+  & > * {
+    border: 2px solid green;
+  }
+}
+
+.data-fetched {
+  border: 2px solid black;
+}
+
+b {
+  text-decoration: underline;
+  color: cornflowerblue;
+}

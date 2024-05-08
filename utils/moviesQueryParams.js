@@ -11,43 +11,53 @@ const QUERY_KEYS_TYPE = {
 const QUERY_KEYS = {
   GENRE: {
     key: "genre",
-    type: QUERY_KEYS_TYPE.isStringArr
+    type: QUERY_KEYS_TYPE.isStringArr,
+    example: [""]
   },
   RATEFROM: {
     key: "rateFrom",
-    type: QUERY_KEYS_TYPE.isNumber
+    type: QUERY_KEYS_TYPE.isNumber,
+    example: 0
   },
   RATEUNTIL: {
     key: "rateUntil",
-    type: QUERY_KEYS_TYPE.isNumber
+    type: QUERY_KEYS_TYPE.isNumber,
+    example: 0
   },
   RATEBETWEEN: {
     key: "rateBetween",
-    type: QUERY_KEYS_TYPE.isSpecificFormat
+    type: QUERY_KEYS_TYPE.isSpecificFormat,
+    example: `${0}-${0}`
   },
   OSCAR: {
     key: "oscar",
-    type: QUERY_KEYS_TYPE.isBoolean
+    type: QUERY_KEYS_TYPE.isBoolean,
+    example: true
   },
   BASEDONBOOK: {
     key: "basedOnBook",
-    type: QUERY_KEYS_TYPE.isBoolean
+    type: QUERY_KEYS_TYPE.isBoolean,
+    example: true
   },
   DIRECTOR: {
     key: "director",
-    type: QUERY_KEYS_TYPE.isStringDef
+    type: QUERY_KEYS_TYPE.isStringDef,
+    example: true
   },
   YEARFROM: {
     key: "yearFrom",
-    type: QUERY_KEYS_TYPE.isNumber
+    type: QUERY_KEYS_TYPE.isNumber,
+    example: 0
   },
   YEARUNTIL: {
     key: "yearUntil",
-    type: QUERY_KEYS_TYPE.isNumber
+    type: QUERY_KEYS_TYPE.isNumber,
+    example: 0
   },
   YEARBETWEEN: {
     key: "yearBetween",
-    type: QUERY_KEYS_TYPE.isSpecificFormat
+    type: QUERY_KEYS_TYPE.isSpecificFormat,
+    example: `${0}-${0}`
   }
 }
 
@@ -169,4 +179,4 @@ const moviesQueryParams = ({ allQueries, dataToFilter }, { pagination }) => {
   return objToReturn
 }
 
-module.exports = { moviesQueryParams }
+module.exports = { moviesQueryParams, QUERY_KEYS }
