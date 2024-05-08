@@ -3,12 +3,12 @@
 const express = require("express")
 const crypto = require("node:crypto")
 const cors = require("cors")
-const { validateMovie, validatePartialMovies } = require("./schemas/movies")
-const allMoviesJSON = require("./data/movies.json")
-const { toJSON } = require("./utils/toJSON")
-const { formatResponse } = require("./utils/formatResponse")
-const { moviesQueryParams, QUERY_KEYS } = require("./utils/moviesQueryParams")
-const { originChecked } = require("./utils/originChecked")
+const { validateMovie, validatePartialMovies } = require("../schemas/movies")
+const allMoviesJSON = require("../data/movies.json")
+const { toJSON } = require("../utils/toJSON")
+const { formatResponse } = require("../utils/formatResponse")
+const { moviesQueryParams, QUERY_KEYS } = require("../utils/moviesQueryParams")
+const { originChecked } = require("../utils/originChecked")
 
 const app = express()
 app.disable("x-powered-by")
@@ -205,3 +205,5 @@ const PORT = process.env.PORT ?? 3000
 app.listen(PORT, () => {
   console.log(`Server listening on port http://localhost:${PORT}`)
 })
+
+module.exports = app
